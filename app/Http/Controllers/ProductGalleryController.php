@@ -27,10 +27,9 @@ class ProductGalleryController extends Controller
      */
     public function index()
     {
-        $items = ProductGallery::with('product')->get();
-
+        $items = ProductGallery::with('product')->paginate(7);
         return view('pages.product-galleries.index')->with([
-            'item' => $items
+            'items' => $items
         ]);
     }
 
@@ -73,7 +72,11 @@ class ProductGalleryController extends Controller
      */
     public function show($id)
     {
-        //
+        $item = ProductGallery::with('product')->findOrFail($id);
+
+        return view('pages.product-galleries.show')->with([
+            'item' => $item
+        ]);
     }
 
     /**
@@ -112,4 +115,5 @@ class ProductGalleryController extends Controller
 
         return redirect()->route('products-galleries.index');
     }
+
 }

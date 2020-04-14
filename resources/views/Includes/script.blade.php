@@ -44,9 +44,12 @@
 
             modal.find('.modal-body').load(button.data("remote"));
             modal.find('.modal-title').html(button.data("title"));
+
         });
     });
 </script>
+
+
 
 <div class="modal" id="mymodal" tabindex="-1" role="dialog">
     <div class="modal-dialog modal-lg" role="document">
@@ -55,7 +58,7 @@
             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
             </button>
-          <h5 class="modal-title"></h5>
+          <h5 class="modal-title text-center"></h5>
         </div>
         <div class="modal-body">
          <center>

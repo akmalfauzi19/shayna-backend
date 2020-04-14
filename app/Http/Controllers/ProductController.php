@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Product;
 use App\Http\Requests\ProductRequest;
 use App\Models\ProductGallery;
+use App\Models\Transaction;
 use Facade\FlareClient\View;
 use Illuminate\Http\Request;
 use Illuminate\Support\str;
@@ -30,10 +31,9 @@ class ProductController extends Controller
     public function index()
     {
 
-        $items = Product::all();
-        $number = 1;
+        $items = Product::paginate(8);
         return view('pages.products.index')->with([
-            'items' => $items, 'number' => $number++
+            'items' => $items
         ]);
     }
 
@@ -70,7 +70,11 @@ class ProductController extends Controller
      */
     public function show($id)
     {
-        //
+        $item = Product::findorFail($id);
+
+        return view('pages.products.show')->with([
+            'item' => $item
+        ]);
     }
 
     /**
@@ -132,4 +136,7 @@ class ProductController extends Controller
             'item' => $items
         ]);
     }
+
+
+
 }

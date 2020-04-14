@@ -26,10 +26,10 @@ class TransactionController extends Controller
      */
     public function index()
     {
-        $item = transaction::all();
-        $number = 1;
+        $item = transaction::paginate(8);
+        $item->firstItem();
         return view('pages.transactions.index')->with([
-            'items' => $item, 'number' => $number++
+            'items' => $item
         ]);
     }
 
@@ -68,6 +68,8 @@ class TransactionController extends Controller
             'item' => $item
         ]);
     }
+
+
 
     /**
      * Show the form for editing the specified resource.
@@ -130,4 +132,7 @@ class TransactionController extends Controller
 
         return redirect()->route('transactions.index');
     }
+
+
+
 }

@@ -27,7 +27,7 @@
 
                                   @forelse ($items as $item)
                                   <tr>
-                                    <td>{{ $number++ }}</td>
+                                    <td>{{ $item->id }}</td>
                                     <td>{{ $item->name }}</td>
                                     <td>{{ $item->email }}</td>
                                     <td>{{ $item->number }}</td>
@@ -73,10 +73,10 @@
                                         <i class="fa fa-eye"></i>
                                     </a>
 
-                                        <a href="{{ route('transactions.edit', $item->id) }} "
+                                    <a href="{{ route('transactions.edit', $item->id) }} "
                                             class="btn btn-primary btn-sm" >
                                             <i class="fa fa-pencil"></i>
-                                        </a>
+                                    </a>
 
                                         <form action="{{ route('transactions.destroy', $item->id) }}"
                                             method="post" class="d-inline">
@@ -86,6 +86,16 @@
                                                 <i class="fa fa-trash"></i>
                                             </button>
                                          </form>
+
+                                    {{-- <a href="#mymodal"
+                                         data-remote="{{ route('transactions.show', $item->id) }}"
+                                         data-toggle="modal"
+                                         data-target="#mymodal"
+                                         data-title="Detail Transaksi {{ $item->uuid }}"
+                                         class="btn btn-danger btn-sm" >
+                                         <i class="fa fa-trash"></i>
+                                     </a> --}}
+
 
                                     </td>
                                 </tr>
@@ -100,10 +110,14 @@
                             </table>
                         </div>
                     </div>
+
                 </div>
             </div>
         </div>
-
+        <div>
+            {{ $items->links() }}
+        </div>
 
     </div>
 @endsection
+

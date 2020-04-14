@@ -6,7 +6,7 @@
                 <div class="card">
                     <div class="card-body">
                         <h4 class="box-title">
-                            Daftar Foto Barang <small>"{{ $product->name }}"</small>
+                            Daftar Foto Barang => <small>"{{ $product->name }}"</small>
                         </h4>
                     </div>
                     <div class="card-body--">
@@ -32,13 +32,21 @@
                                     </td>
                                     <td>{{ $item->is_default ? 'Ya' : 'Tidak' }}</td>
                                     <td>
-                                        <form action="{{ route('products-galleries.destroy', $item->id) }}" method="post" class="d-inline">
+                                        {{-- <form action="{{ route('products-galleries.destroy', $item->id) }}" method="post" class="d-inline">
                                                 @csrf
                                             @method('delete')
                                             <button class="btn btn-danger btn-sm" >
                                                 <i class="fa fa-trash"></i>
                                             </button>
-                                         </form>
+                                         </form> --}}
+                                         <a href="#mymodal"
+                                         data-remote="{{ route('products-galleries.show', $item->id) }}"
+                                         data-toggle="modal"
+                                         data-target="#mymodal"
+                                         data-title="DELETE CONFIRMATION!!!"
+                                         class="btn btn-danger btn-sm" >
+                                         <i class="fa fa-trash"></i>
+                                         </a>
 
                                     </td>
                                 </tr>

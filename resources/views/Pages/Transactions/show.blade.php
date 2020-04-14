@@ -17,7 +17,7 @@
     </tr>
     <tr>
         <th>Total Transaksi</th>
-        <td>{{ $item->transaction_total }}</td>
+        <td>Rp. {{ $item->transaction_total }}</td>
     </tr>
     <tr>
         <th>Status Transaksi</th>
@@ -28,16 +28,16 @@
         <td>
             <table class="tabble table-bordered w-100">
                 <tr>
-                    <td>Nama</td>
-                    <td>Tipe</td>
-                    <td>Harga</td>
+                    <th>Nama</th>
+                    <th>Tipe</th>
+                    <th>Harga</th>
                 </tr>
                     @foreach ($item->details as $detail )
-
+                    <tr>
                         <td>{{ $detail->product->name }}</td>
                         <td>{{ $detail->product->type }}</td>
                         <td>Rp.{{ $detail->product['price'] }}</td>
-
+                    </tr>
                     @endforeach
             </table>
         </td>

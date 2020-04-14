@@ -9,7 +9,7 @@
                     </li>
                     <li class="menu-title">Barang</li><!-- /.menu-title -->
                     <li class="">
-                    <a href="{{ route('products.index') }}"> <i class="menu-icon fa fa-list"></i>Lihat Barang</a>
+                    <a href="{{ route('products.index') }}"> <i class="menu-icon fa fa-reorder"></i>Lihat Barang</a>
                     </li>
                     <li class="">
                         <a href="{{ route('products.create') }}"> <i class="menu-icon fa fa-plus"></i>Tambah Barang</a>
@@ -17,7 +17,7 @@
 
                     <li class="menu-title">Foto Barang</li><!-- /.menu-title -->
                     <li class="">
-                        <a href="{{ route('products-galleries.index') }}"> <i class="menu-icon fa fa-list"></i>Lihat Foto Barang</a>
+                        <a href="{{ route('products-galleries.index') }}"> <i class="menu-icon fa fa-photo"></i>Lihat Foto Barang</a>
                     </li>
                     <li class="">
                         <a href="{{ route('products-galleries.create') }}"> <i class="menu-icon fa fa-plus"></i>Tambah Foto Barang</a>
@@ -25,7 +25,7 @@
 
                     <li class="menu-title">Transaksi</li><!-- /.menu-title -->
                     <li class="">
-                        <a href="{{ route('transactions.index') }}"> <i class="menu-icon fa fa-list"></i>Lihat Transaksi</a>
+                        <a href="{{ route('transactions.index') }}"> <i class="menu-icon fa fa-credit-card "></i>Lihat Transaksi</a>
                     </li>
                 </ul>
             </div><!-- /.navbar-collapse -->

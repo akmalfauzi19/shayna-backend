@@ -26,26 +26,35 @@
 
                                   @forelse ($items as $item)
                                   <tr>
-                                    <td>{{ $number++ }}</td>
+                                    <td>{{ $item->id }}</td>
                                     <td>{{ $item->name }}</td>
                                     <td>{{ $item->type }}</td>
-                                    <td>Rp. {{ $item->price }}</td>
+                                    <td>Rp.{{ $item->price }}</td>
                                     <td>{{ $item->quantity }}</td>
                                     <td>
                                         {{-- <a href="#" class="btn btn-info btn-sm" > --}}
-                                    <a href="{{route('products.gallery', $item->id)}}" class="btn btn-info btn-sm" >
+                                        <a href="{{route('products.gallery', $item->id)}}" class="btn btn-info btn-sm" >
                                             <i class="fa fa-picture-o"></i>
                                         </a>
                                         <a href="{{ route('products.edit', $item->id) }} " class="btn btn-primary btn-sm" >
                                             <i class="fa fa-pencil"></i>
                                         </a>
-                                        <form action="{{ route('products.destroy', $item->id) }}" method="post" class="d-inline">
+                                        {{-- <form action="{{ route('products.destroy', $item->id) }}" method="post" class="d-inline">
                                                 @csrf
                                             @method('delete')
                                             <button class="btn btn-danger btn-sm" >
                                                 <i class="fa fa-trash"></i>
                                             </button>
-                                         </form>
+                                         </form> --}}
+
+                                         <a href="#mymodal"
+                                         data-remote="{{ route('products.show', $item->id) }}"
+                                         data-toggle="modal"
+                                         data-target="#mymodal"
+                                         data-title="DELETE CONFIRMATION!!!"
+                                         class="btn btn-danger btn-sm" >
+                                         <i class="fa fa-trash"></i>
+                                         </a>
 
                                     </td>
                                 </tr>
@@ -63,7 +72,8 @@
                 </div>
             </div>
         </div>
-
-
+        <div class="text-center">
+            {{ $items->links() }}
+        </div>
     </div>
 @endsection

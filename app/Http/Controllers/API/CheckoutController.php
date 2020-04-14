@@ -13,7 +13,7 @@ class CheckoutController extends Controller
 {
     public function checkout(Request $request)
     {
-        // $data = $request->all();
+        // $data = $request->all(); mencoba untuk debug
         $data = $request->except('transaction_details');
         $data['uuid'] = 'TRX' . mt_rand(10000, 99999) . mt_rand(100, 999);
 
@@ -32,6 +32,7 @@ class CheckoutController extends Controller
 
         return ResponseFormatter::success($transaction);
 
-        // return response()->json($data);
+        // return response()->json($data); mencoba untuk debug
+
     }
 }
